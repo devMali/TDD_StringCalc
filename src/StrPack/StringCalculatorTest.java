@@ -28,5 +28,9 @@ public class StringCalculatorTest {
 		assertEquals(sc.add("5,2,4,6,8,30"),55);
 	}
 	
+	@Test
+	public void testWithAlphabets() {
+		assertEquals(sc.add("5,7,b,c"),17);
+	}
 
 }

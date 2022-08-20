@@ -1,11 +1,10 @@
 package StrPack;
+import java.util.StringTokenizer;
 
 public class StringCalculator {
 
 	public int add(String numbers)
 	{
-		String[] num  = numbers.split(",");
-
 		if(numbers.isEmpty()) {
 			return 0;
 		}
@@ -14,19 +13,40 @@ public class StringCalculator {
 		}
 		else
 		{
-			//return Integer.parseInt(num[0]) + Integer.parseInt(num[1]);
-			return getSum(num);
+			return alphaNumericSum(numbers);
 		}
 	}
 	
-	private int getSum(String[] num)
+	
+	private int alphaNumericSum(String num)
 	{
-		int sum = 0;
+		String digit = num.replaceAll("[^0-9]"," ");
+		String alpha = num.replaceAll("[^a-z]","");
 		
-		for(String n: num )
-		{
-			sum += Integer.parseInt(n);
-		}
-		return sum;
+		int sum1=0;
+		int sum2=0;
+		
+		StringTokenizer st = new StringTokenizer(digit);
+		
+		while (st.hasMoreTokens()) {  
+			int n = 0;
+			n = Integer.parseInt(st.nextToken());
+			sum1 += n;
+	     }  
+		
+		char[] cnum  = alpha.toCharArray();
+        int ch;
+		
+        for(char s : cnum)
+        {
+            ch = Character.getNumericValue(s);
+			ch=ch-9;
+			sum2 +=ch;
+        }
+        
+		return sum1+sum2;
 	}
+	
+	
 }
+
