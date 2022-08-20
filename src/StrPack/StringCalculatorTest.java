@@ -25,7 +25,7 @@ public class StringCalculatorTest {
 	
 	@Test
 	public void testWithUnlimitedNum() {
-		assertEquals(sc.add("5,2,4,6,8,30"),55);
+		assertEquals(sc.add("500,2,4,6,8,30"),550);
 	}
 	
 	@Test
@@ -35,7 +35,7 @@ public class StringCalculatorTest {
 	
 	@Test
 	public void testWithGreaterThan1000() {
-		assertEquals(sc.add("5,1100,7"),12);
+		assertEquals(sc.add("5,1020,7,d"),16);
 	}
 
 }
