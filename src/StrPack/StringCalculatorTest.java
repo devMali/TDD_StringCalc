@@ -32,5 +32,10 @@ public class StringCalculatorTest {
 	public void testWithAlphabets() {
 		assertEquals(sc.add("5,7,b,c"),17);
 	}
+	
+	@Test
+	public void testWithGreaterThan1000() {
+		assertEquals(sc.add("5,1100,7"),12);
+	}
 
 }

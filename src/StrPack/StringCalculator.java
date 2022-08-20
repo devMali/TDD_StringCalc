@@ -11,9 +11,13 @@ public class StringCalculator {
 		else if(numbers.length() ==1) {
 			return Integer.parseInt(numbers);
 		}
-		else
+		else if(numbers.contains("b"))
 		{
 			return alphaNumericSum(numbers);
+		}
+		else {
+			String [] num = numbers.split(",");
+			return getSumgt1000(num);
 		}
 	}
 	
@@ -45,6 +49,22 @@ public class StringCalculator {
         }
         
 		return sum1+sum2;
+	}
+	
+	private int getSumgt1000(String[] num)
+	{
+		int sum=0;
+		int val;
+		for(String curr: num)
+		{
+			val=Integer.parseInt(curr);
+			if(val > 1000) {
+				continue;
+			}
+			sum+=val;
+				
+		}
+		return sum;
 	}
 	
 	
