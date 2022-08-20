@@ -23,6 +23,10 @@ public class StringCalculatorTest {
 		assertEquals(sc.add("5,2"),7);
 	}
 	
+	@Test
+	public void testWithUnlimitedNum() {
+		assertEquals(sc.add("5,2,4,6,8,30"),55);
+	}
 	
 
 }
