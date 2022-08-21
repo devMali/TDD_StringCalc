@@ -44,7 +44,7 @@ public class StringCalculatorTest {
 		 try {
 	            sc.add("-17");
 	        } catch (NegativeException.NoNegativesAllowed e) {
-	            assertEquals(e.getMessage(), "Negatives Not Allowed. Numbers are: -17 ");
+	            assertEquals(e.getMessage(), "Negatives Not Allowed: -17 ");
 	        }
 	}
 	
@@ -53,7 +53,7 @@ public class StringCalculatorTest {
 		 try {
 	            sc.add("10,22,-11,18,-25");
 	        } catch (NegativeException.NoNegativesAllowed e) {
-	            assertEquals(e.getMessage(), "Negatives Not Allowed. Numbers are: -11 -25 ");
+	            assertEquals(e.getMessage(), "Negatives Not Allowed: -11 -25 ");
 	        }
 	}
 	
@@ -65,5 +65,16 @@ public class StringCalculatorTest {
 	@Test
 	public void testWithDifferentDelimiters() {
 		assertEquals(sc.add("//;\n1;k;2;a"),15);
+	}
+	
+	
+	@Test
+	public void testWithOddEvenAddition() {
+		assertEquals(sc.add("1//[***]\n1***2***3***4***5"),6);
+	}
+	
+	@Test
+	public void testWithOddEvenAddition2() {
+		assertEquals(sc.add("0//[***]\n1***2***3***4***5"),9);
 	}
 }

@@ -12,6 +12,9 @@ public class StringCalculator {
 		else if(numbers.length() ==1) {
 			return Integer.parseInt(numbers);
 		}
+		else if(numbers.charAt(0)=='1' || numbers.charAt(0)=='0') {
+			return OddEvenAdd(numbers);
+		}
 		else {
 			return alphaNumericSum(numbers);
 		}
@@ -26,9 +29,9 @@ public class StringCalculator {
 			String[] addnums = num.split("[,\n;]+");
 		
 			String str="";
-			
+			int val;
 			 for (String n : addnums) {
-		            Integer val = Integer.parseInt(n);
+		            val = Integer.parseInt(n);
 		            if (val < 0) {
 		            	negativeNums.add(val);
 		                str += (String.valueOf(val) + " ");
@@ -47,7 +50,7 @@ public class StringCalculator {
 		int sum2=0;
 		
 		StringTokenizer st = new StringTokenizer(digit);
-		
+
 		while (st.hasMoreTokens()) {  
 			int n = 0;
 			n = Integer.parseInt(st.nextToken());
@@ -72,6 +75,38 @@ public class StringCalculator {
 		}
 	}
 
+	public int OddEvenAdd(String num)
+	{
+		char choice=num.charAt(0);
+		
+		String digit = num.replaceAll("[^0-9]","");
+		char chArr[] = digit.toCharArray();
+		
+	
+			int sum=0;
+		    if(choice=='0')
+		    {
+		        for(int i=1;i<chArr.length;i=i+2)
+		        {
+		            System.out.print(chArr[i]);
+		            String str = String.valueOf(chArr[i]);
+		            sum += Integer.parseInt(str);
+		        }
+		     
+		    }
+		    if(choice=='1')
+		    {
+		        for(int i=2;i<chArr.length;i=i+2)
+		        {
+		            System.out.print(chArr[i]);
+		            String str = String.valueOf(chArr[i]);
+		            sum += Integer.parseInt(str);
+		        }
+		    
+		    }	
+		    
+		    return sum;
+	}
 	
 	
 	

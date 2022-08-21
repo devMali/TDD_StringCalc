@@ -10,7 +10,7 @@ public class NegativeException {
 
     public static void throwNegativeException(String negativeNum) {
         if (negativeNum != "") {
-            throw new NoNegativesAllowed("Negatives Not Allowed. Numbers are: " + negativeNum);
+            throw new NoNegativesAllowed("Negatives Not Allowed: " + negativeNum);
         }
     }
 
