@@ -1,9 +1,10 @@
 package StrPack;
 import java.util.StringTokenizer;
+import java.util.*;
 
 public class StringCalculator {
 
-	public int add(String numbers)
+	public int add(String numbers) throws Exception
 	{
 		if(numbers.isEmpty()) {
 			return 0;
@@ -17,8 +18,28 @@ public class StringCalculator {
 	}
 	
 	
-	private int alphaNumericSum(String num)
+	private int alphaNumericSum(String num) throws Exception
 	{
+		if(num.contains("-"))
+		{
+			ArrayList<Integer> negativeNums = new ArrayList<>();
+			String[] addnums = num.split(",");
+		
+			String str="";
+			
+			 for (String n : addnums) {
+		            Integer val = Integer.parseInt(n);
+		            if (val < 0) {
+		            	negativeNums.add(val);
+		                str += (String.valueOf(val) + " ");
+		            }
+			}  
+			 NegativeException.throwNegativeException(str);
+			 return 0;
+		}
+		else
+		{
+		
 		String digit = num.replaceAll("[^0-9]"," ");
 		String alpha = num.replaceAll("[^a-z]","");
 		
@@ -48,8 +69,10 @@ public class StringCalculator {
         }
         
 		return sum1+sum2;
+		}
 	}
+
 	
-
+	
+	
 }
-
