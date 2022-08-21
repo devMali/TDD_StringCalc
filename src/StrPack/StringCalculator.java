@@ -23,7 +23,7 @@ public class StringCalculator {
 		if(num.contains("-"))
 		{
 			ArrayList<Integer> negativeNums = new ArrayList<>();
-			String[] addnums = num.split("[,\n]+");
+			String[] addnums = num.split("[,\n;]+");
 		
 			String str="";
 			

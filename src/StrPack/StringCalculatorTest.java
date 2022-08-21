@@ -51,9 +51,9 @@ public class StringCalculatorTest {
 	@Test
 	public void testWithMultipleNegativeValue() {
 		 try {
-	            sc.add("-17,-18,10");
+	            sc.add("10,22,-11,18,-25");
 	        } catch (NegativeException.NoNegativesAllowed e) {
-	            assertEquals(e.getMessage(), "Negatives Not Allowed. Numbers are: -17 -18 ");
+	            assertEquals(e.getMessage(), "Negatives Not Allowed. Numbers are: -11 -25 ");
 	        }
 	}
 	
@@ -62,4 +62,8 @@ public class StringCalculatorTest {
 		assertEquals(sc.add("5\n6,n,7"),32);
 	}
 	
+	@Test
+	public void testWithDifferentDelimiters() {
+		assertEquals(sc.add("//;\n1;k;2;a"),15);
+	}
 }
