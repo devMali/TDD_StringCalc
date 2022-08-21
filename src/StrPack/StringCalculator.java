@@ -4,7 +4,7 @@ import java.util.*;
 
 public class StringCalculator {
 
-	public int add(String numbers) throws Exception
+	public int add(String numbers) 
 	{
 		if(numbers.isEmpty()) {
 			return 0;
@@ -18,12 +18,12 @@ public class StringCalculator {
 	}
 	
 	
-	private int alphaNumericSum(String num) throws Exception
+	private int alphaNumericSum(String num) 
 	{
 		if(num.contains("-"))
 		{
 			ArrayList<Integer> negativeNums = new ArrayList<>();
-			String[] addnums = num.split(",");
+			String[] addnums = num.split("[,\n]+");
 		
 			String str="";
 			
